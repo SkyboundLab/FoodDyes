@@ -13,20 +13,10 @@ import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.ItemStack;
 
-/**
- * Brigadier command tree. Paper plugins cannot use plugin.yml commands or
- * JavaPlugin#getCommand, so everything is registered through the Paper
- * Brigadier registrar (see FoodDyesPlugin).
- *
- * /fooddyes                            - your lost hearts (and max health)
- * /fooddyes give <player> <dye> [kind] [amount]
- *                                      - give powder (default) or soda
- * /fooddyes hearts [player]            - hearts lost to powders
- * /fooddyes reload                     - reload config.yml (admin)
- * /fooddyes debug                      - live state (admin)
- *
- * Dye ids: red40, yellow5, blue1. Kinds: powder, soda.
- */
+// Brigadier command tree. Paper plugins register commands through the Paper
+// registrar, not plugin.yml (see FoodDyesPlugin). Subcommands:
+// /fooddyes hearts [player], give <player> <dye> [kind] [amount], reload,
+// debug. Dye ids: red40, yellow5, blue1. Kinds: powder, soda.
 public class FoodDyesCommand {
 
     private final FoodDyesPlugin plugin;

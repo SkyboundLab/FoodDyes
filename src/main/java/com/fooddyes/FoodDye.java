@@ -5,11 +5,8 @@ import org.bukkit.Color;
 import org.bukkit.Material;
 import org.bukkit.potion.PotionEffectType;
 
-/**
- * The three food dyes. Each has a signature effect: Red 40 gives Strength,
- * Yellow 5 gives Saturation, Blue 1 gives Speed. The powder gives the effect
- * at level I, the soda at level II.
- */
+// The three food dyes: Red 40 -> Strength, Yellow 5 -> Saturation, Blue 1 ->
+// Speed. Powder gives the effect at level I, soda at level II.
 public enum FoodDye {
 
     RED40("red40", "Red 40", Material.RED_DYE, NamedTextColor.RED,

@@ -13,18 +13,10 @@ import org.bukkit.event.player.PlayerItemConsumeEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
 import org.bukkit.event.player.PlayerRespawnEvent;
 
-/**
- * Eating, dying, joining.
- *
- * <ul>
- *   <li>Eating a powder or drinking a soda costs 1 heart of max health
- *   (the effects themselves come from the item's components, no code
- *   needed) and earns the "Artificially Flavoured" advancement.</li>
- *   <li>Dying gives the hearts back: the count resets on respawn.</li>
- *   <li>Joining re-applies max health from the stored count and unlocks
- *   the recipes, so a relog never loses (or keeps) the wrong hearts.</li>
- * </ul>
- */
+// Eating a powder or drinking a soda costs 1 heart and earns the
+// "Artificially Flavoured" advancement (the effects themselves come from the
+// item's components). Dying resets the heart count; joining re-applies max
+// health and discovers the recipes.
 public class DyeListener implements Listener {
 
     private final FoodDyesPlugin plugin;
@@ -45,19 +37,14 @@ public class DyeListener implements Listener {
         awardAdvancement(player);
         if (plugin.hearts().takeHeart(player)) {
             player.sendActionBar(Component.text(
-                    "-1 \u2764 — you'll get it back when you die.", NamedTextColor.RED));
+                    "-1 \u2764 . You'll get it back when you die.", NamedTextColor.RED));
         }
     }
 
-    /**
-     * Awards the advancement's single criterion. The criterion uses the
-     * impossible trigger and is granted here, because the plugin is the
-     * authority on what counts as a food dye — the datapack trigger cannot
-     * express "any of the six items": its custom_data predicate matches the
-     * whole compound exactly (a shared marker tag does not match), and
-     * multi-criterion OR requirements do not complete on one criterion in
-     * this environment (a fresh player needed 5 of 6 criteria granted).
-     */
+    // Grants the advancement's single criterion. The datapack trigger can't
+    // express "any of the six items" (its custom_data predicate matches the
+    // whole compound exactly, and multi-criterion OR doesn't complete on one
+    // criterion here), so the plugin awards it directly.
     private void awardAdvancement(Player player) {
         Advancement adv = Bukkit.getAdvancement(new NamespacedKey("red40", "eat_red40"));
         if (adv == null) {

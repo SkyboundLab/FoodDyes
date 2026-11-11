@@ -6,12 +6,9 @@ import org.bukkit.attribute.AttributeInstance;
 import org.bukkit.entity.Player;
 import org.bukkit.persistence.PersistentDataType;
 
-/**
- * The heart price. Each powder eaten or soda drunk costs 1 heart of max
- * health (2.0), tracked per player in their PersistentDataContainer so it
- * survives relogs. Dying gives the hearts back: the count resets on respawn.
- * Max health never drops below 2.0 (one heart), so eating cannot kill.
- */
+// The heart price: 1 heart of max health (2.0) per powder eaten or soda
+// drunk, tracked per player in their PDC so it survives relogs. Resets on
+// respawn. Max health never drops below 2.0, so eating cannot kill.
 public class HeartManager {
 
     public static final double BASE_MAX_HEALTH = 20.0;

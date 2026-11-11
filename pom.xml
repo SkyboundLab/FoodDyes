@@ -9,21 +9,19 @@
   <version>1.0.0</version>
   <packaging>jar</packaging>
   <name>FoodDyes</name>
-  <description>Red 40, Yellow 5 and Blue 1 as edible dyes for Paper 26.3 — powders and sodas, at the cost of a heart per bite.</description>
+  <description>Red 40, Yellow 5 and Blue 1 as edible dyes for Paper 26.3. Powders and sodas, at the cost of a heart per bite.</description>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <maven.compiler.release>25</maven.compiler.release>
-    <!-- Target: Paper 26.3, build 244 API (the build on the user's server).
-         The plugin uses only long-standing Bukkit/Paper API, so it also runs
-         on any other 26.3 build. -->
+    <!-- Target: Paper 26.3 build 244 API. Uses only long-standing Bukkit/Paper
+         API, so it also runs on any other 26.3 build. -->
     <paper.version>26.3.build.244-stable</paper.version>
     <paper.api-version>26.3</paper.api-version>
-    <!-- pack.mcmeta content for the advancement datapack bundled in the jar
-         (resources are filtered, so pack/pack.mcmeta is just this property).
-         26.3 uses the [min, max] array form; the 1.21.8 test profile below
-         uses the single-number form instead. -->
-    <datapack.packmeta>{"pack":{"description":"FoodDyes advancements — Artificially Flavoured.","max_format":[121,0],"min_format":[121,0]}}</datapack.packmeta>
+    <!-- pack.mcmeta for the advancement datapack bundled in the jar (resources
+         are filtered, so pack/pack.mcmeta is just this property). 26.3 uses the
+         [min, max] array form; the 1.21.8 profile below uses single numbers. -->
+    <datapack.packmeta>{"pack":{"description":"FoodDyes advancements: Artificially Flavoured.","max_format":[121,0],"min_format":[121,0]}}</datapack.packmeta>
   </properties>
 
   <repositories>
@@ -42,16 +40,15 @@
     </dependency>
   </dependencies>
 
-  <!-- Test variant: same source, compiled against Paper 1.21.8 so the
-       mineflayer bot (which tops out at 26.1 / works on 1.21.8) can drive
-       a live eating/drinking/death test. Build with: mvn -Ptest1218 package -->
+  <!-- Test variant compiled against Paper 1.21.8 for live bot tests.
+       Build with: mvn -Ptest1218 package -->
   <profiles>
     <profile>
       <id>test1218</id>
       <properties>
         <paper.version>1.21.8-R0.1-SNAPSHOT</paper.version>
         <paper.api-version>1.21</paper.api-version>
-        <datapack.packmeta>{"pack":{"pack_format":81,"description":"FoodDyes advancements — Artificially Flavoured."}}</datapack.packmeta>
+        <datapack.packmeta>{"pack":{"pack_format":81,"description":"FoodDyes advancements: Artificially Flavoured."}}</datapack.packmeta>
       </properties>
     </profile>
   </profiles>

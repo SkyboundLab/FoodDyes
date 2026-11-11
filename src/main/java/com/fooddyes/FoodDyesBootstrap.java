@@ -9,26 +9,11 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Objects;
 
-/**
- * Paper bootstrapper. Two jobs:
- *
- * <ul>
- *   <li>The descriptor uses the correct {@code bootstrapper:} key (Paper
- *   silently ignores the wrong {@code bootstrap:} key).</li>
- *   <li>The plugin's own advancement datapack is discovered here, so the
- *   plugin ships its advancement itself — no companion datapack to install.
- *   The datapack lives in the jar at {@code /pack} (pack.mcmeta +
- *   data/red40/advancement/eat_red40.json). It is discovered on every
- *   datapack-discovery pass and auto-enabled on server start, so
- *   "Artificially Flavoured" is a real vanilla advancement: same toast,
- *   chat announcement, parent and XP reward as the datapack version,
- *   visible in the normal advancement screen and manageable with
- *   /advancement and /datapack commands. No extra library needed —
- *   UltimateAdvancementAPI and friends build fake packet-based
- *   advancements in a custom tab, which is heavier and different from
- *   what this needs.</li>
- * </ul>
- */
+// Paper bootstrapper. Registers the plugin's own advancement datapack (the
+// /pack directory in the jar, auto-enabled on server start), so
+// "Artificially Flavoured" is a real vanilla advancement with no extra
+// library. Note: the descriptor must use the "bootstrapper:" key; Paper
+// silently ignores "bootstrap:".
 public class FoodDyesBootstrap implements PluginBootstrap {
     @Override
     public void bootstrap(BootstrapContext context) {

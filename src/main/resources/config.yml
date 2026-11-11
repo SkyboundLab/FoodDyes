@@ -1,4 +1,4 @@
-# FoodDyes — Red 40, Yellow 5 and Blue 1.
+# FoodDyes: Red 40, Yellow 5 and Blue 1.
 # Powders give their dye's effect at level I, sodas at level II.
 # Red 40 -> Strength, Yellow 5 -> Saturation, Blue 1 -> Speed.
 powder-effect-seconds: 30

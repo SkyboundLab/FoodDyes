@@ -18,14 +18,9 @@ import org.bukkit.persistence.PersistentDataContainer;
 import org.bukkit.persistence.PersistentDataType;
 import org.bukkit.potion.PotionEffect;
 
-/**
- * Builds the dye items and recognises them again later. Every FoodDyes item
- * carries two PersistentDataContainer tags: the dye id ("red40", "yellow5",
- * "blue1") and the kind ("powder" or "soda"). The effects come from the
- * item's own data components, exactly like the datapack did: the powder is
- * a food with a consumable that applies its dye's effect at level I, the
- * soda is a potion whose custom effects apply its dye's effect at level II.
- */
+// Builds the dye items and recognises them later. Every FoodDyes item carries
+// two PDC tags: the dye id ("red40", "yellow5", "blue1") and the kind
+// ("powder" or "soda"). The effects live in the item's own data components.
 public class DyeItems {
 
     public static final String KIND_POWDER = "powder";
@@ -51,7 +46,7 @@ public class DyeItems {
                 Component.text("Synthetic food colouring. Tastes like trouble.",
                                 NamedTextColor.DARK_GRAY)
                         .decoration(TextDecoration.ITALIC, false),
-                Component.text("Costs 1 heart per bite — you get it back when you die.",
+                Component.text("Costs 1 heart per bite. You get it back when you die.",
                                 NamedTextColor.RED)
                         .decoration(TextDecoration.ITALIC, false)));
         PersistentDataContainer pdc = meta.getPersistentDataContainer();
@@ -83,7 +78,7 @@ public class DyeItems {
                                 + plugin.config().drinkEffectSeconds + " seconds.",
                                 NamedTextColor.GRAY)
                         .decoration(TextDecoration.ITALIC, false),
-                Component.text("Costs 1 heart per drink — you get it back when you die.",
+                Component.text("Costs 1 heart per drink. You get it back when you die.",
                                 NamedTextColor.RED)
                         .decoration(TextDecoration.ITALIC, false)));
         PersistentDataContainer pdc = meta.getPersistentDataContainer();

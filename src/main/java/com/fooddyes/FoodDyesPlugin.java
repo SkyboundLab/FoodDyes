@@ -12,14 +12,9 @@ import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.ShapelessRecipe;
 import org.bukkit.plugin.java.JavaPlugin;
 
-/**
- * FoodDyes — Red 40, Yellow 5 and Blue 1 as edible dyes for Paper 26.3.
- *
- * Powders (dye + sugar) give their dye's effect at level I; sodas (glass
- * bottle + sugar + dye) at level II. Red 40 gives Strength, Yellow 5 gives
- * Saturation, Blue 1 gives Speed. Eating a powder or drinking a soda costs
- * 1 heart of max health; dying gives the hearts back.
- */
+// Red 40, Yellow 5 and Blue 1 as edible dyes. Powders (dye + sugar) give the
+// effect at level I, sodas (bottle + sugar + dye) at level II. Eating one
+// costs 1 heart of max health; dying gives the hearts back.
 public class FoodDyesPlugin extends JavaPlugin {
 
     private FoodDyesConfig dyeConfig;
@@ -38,7 +33,7 @@ public class FoodDyesPlugin extends JavaPlugin {
         getLifecycleManager().registerEventHandler(LifecycleEvents.COMMANDS, event ->
                 event.registrar().register(
                         new FoodDyesCommand(this).buildRoot(),
-                        "FoodDyes — Red 40, Yellow 5 and Blue 1",
+                        "FoodDyes: Red 40, Yellow 5 and Blue 1",
                         List.of("fd")));
         for (Player player : Bukkit.getOnlinePlayers()) {
             hearts.apply(player);
@@ -48,7 +43,7 @@ public class FoodDyesPlugin extends JavaPlugin {
         if (advPack != null && advPack.isEnabled()) {
             getLogger().info("Advancement datapack loaded: FoodDyes/advancements enabled.");
         } else {
-            getLogger().warning("Advancement datapack FoodDyes/advancements is not enabled — "
+            getLogger().warning("Advancement datapack FoodDyes/advancements is not enabled; "
                     + "the 'Artificially Flavoured' advancement will not be available.");
         }
         getLogger().info("FoodDyes " + getPluginMeta().getVersion() + " enabled: "

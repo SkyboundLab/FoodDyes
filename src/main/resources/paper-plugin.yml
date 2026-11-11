@@ -3,7 +3,7 @@ version: '1.0.0'
 main: com.fooddyes.FoodDyesPlugin
 bootstrapper: com.fooddyes.FoodDyesBootstrap
 api-version: '${paper.api-version}'
-description: Red 40, Yellow 5 and Blue 1 as edible dyes — powders and sodas, at the cost of a heart per bite or sip.
+description: Red 40, Yellow 5 and Blue 1 as edible dyes powders and sodas, at the cost of a heart per bite or sip.
 author: Muse
 permissions:
   fooddyes.admin:
